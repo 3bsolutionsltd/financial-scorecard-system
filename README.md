@@ -8,7 +8,8 @@ A comprehensive financial risk assessment and business management platform built
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104.1-009688.svg)](https://fastapi.tiangolo.com)
 [![Next.js](https://img.shields.io/badge/Next.js-14.0.4-black.svg)](https://nextjs.org)
 
-## 🚀 **Live Demo**
+## 🚀 **Live Repository**
+**GitHub:** https://github.com/3bsolutionsltd/financial-scorecard-system  
 *Ready for deployment in 15 minutes!*
 
 ## 📋 **Features**
@@ -72,7 +73,7 @@ A comprehensive financial risk assessment and business management platform built
 ### **Local Development**
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/financial-scorecard-system.git
+git clone https://github.com/3bsolutionsltd/financial-scorecard-system.git
 cd financial-scorecard-system
 
 # Backend setup
