@@ -8,21 +8,17 @@ RUN apt-get update && apt-get install -y \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first for better caching
-COPY requirements.txt .
+# Copy minimal requirements first for better caching
+COPY requirements-minimal.txt ./requirements.txt
 
-# Install Python dependencies
+# Install minimal Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY . .
 
-# Create non-root user for security
-RUN useradd --create-home --shell /bin/bash app && chown -R app:app /app
-USER app
-
 # Expose port
 EXPOSE 8000
 
-# Run the application
-CMD uvicorn minimal_main:app --host 0.0.0.0 --port $PORT
+# Run the application (Railway will set PORT automatically)
+CMD ["sh", "-c", "uvicorn minimal_main:app --host 0.0.0.0 --port ${PORT:-8000}"]
