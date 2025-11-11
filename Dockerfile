@@ -20,5 +20,5 @@ COPY . .
 # Expose port
 EXPOSE 8000
 
-# Run the application (Railway will set PORT automatically)
-CMD ["sh", "-c", "uvicorn minimal_main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# Run the application using Python starter script
+CMD ["python", "start.py"]
