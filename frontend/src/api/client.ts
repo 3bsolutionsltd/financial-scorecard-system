@@ -1,6 +1,6 @@
 import { Borrower, TradingAccount, RiskFactor, Scorecard, CreateTradingAccountForm } from './types';
 
-const API_BASE_URL = 'http://localhost:8000/api/v1';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://web-production-7c20.up.railway.app/api/v1';
 
 // API client for making requests to our backend
 export class ApiClient {
