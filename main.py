@@ -56,17 +56,26 @@ def root():
 
 @app.get("/health")
 def health_check():
+    return {
+        "status": "healthy",
+        "message": "Financial Scorecard API is running",
+        "timestamp": datetime.now().isoformat(),
+        "version": "1.0.0"
+    }
+
+@app.get("/health/full")
+def full_health_check():
     try:
         # Test database connection
         db = SessionLocal()
         db.execute("SELECT 1")
         db.close()
         db_status = "healthy"
-    except Exception:
-        db_status = "unhealthy"
+    except Exception as e:
+        db_status = f"unhealthy: {str(e)}"
     
     return {
-        "status": "healthy" if db_status == "healthy" else "degraded",
+        "status": "healthy" if "healthy" in db_status else "degraded",
         "database": db_status,
         "timestamp": datetime.now().isoformat(),
         "version": "1.0.0"
